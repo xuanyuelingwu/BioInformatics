@@ -1,0 +1,591 @@
+======================================================================
+  蛋白序列两两比对结果（Smith-Waterman + BLOSUM62）
+  模拟 blastp 核心比对逻辑
+  参数：局部比对，gap open=-11，gap extend=-1
+======================================================================
+
+======================================================================
+Pair 01: shuffled_seq_01 vs shuffled_seq_02
+Query:   shuffled_seq_01  GASASRLGGASGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTGTLMPSTRRF
+Subject: shuffled_seq_02  PRSSSGVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTASGRSR
+----------------------------------------------------------------------
+  Score:      44.0 bits
+  E-value:    1.59e-03
+  Identity:   32/71 (45%)
+  Alignment:
+    Query:  target            2 SASRLGGASGSA------TSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSS 50
+    Match:                    0 ...|..|.|||.------|||...|....|.....|..|.|.|.||....|..| 54
+    Sbjct:  query            12 TSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTAS 66
+
+======================================================================
+Pair 02: shuffled_seq_01 vs shuffled_seq_03
+Query:   shuffled_seq_01  GASASRLGGASGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTGTLMPSTRRF
+Subject: shuffled_seq_03  YGSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGPSMYYRGSLTFSTVV
+----------------------------------------------------------------------
+  Score:      55.0 bits
+  E-value:    8.42e-05
+  Identity:   35/80 (43%)
+  Alignment:
+    Query:  target           10 SGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTGTLMPST 67
+    Match:                    0 ||..|...|.||..|.|--|..|||.|..---------|...||...|..|.|..|| 57
+    Sbjct:  query            22 SGPSTAVLRTSTATAGS--SLPSRSSYTG---------SARSRGPSMYYRGSLTFST 68
+
+======================================================================
+Pair 03: shuffled_seq_01 vs shuffled_seq_04
+Query:   shuffled_seq_01  GASASRLGGASGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTGTLMPSTRRF
+Subject: shuffled_seq_04  STSVRYRGSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFYYTLSSTG
+----------------------------------------------------------------------
+  Score:      44.0 bits
+  E-value:    1.59e-03
+  Identity:   29/72 (40%)
+  Alignment:
+    Query:  target            9 ASGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTL-RGSTRY 58
+    Match:                    0 ||....|||..|....||.....|||..........|..||..-||.... 50
+    Sbjct:  query            12 ASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMF 62
+
+======================================================================
+Pair 04: shuffled_seq_01 vs shuffled_seq_05
+Query:   shuffled_seq_01  GASASRLGGASGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTGTLMPSTRRF
+Subject: shuffled_seq_05  PGPLGFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSRATYSVR
+----------------------------------------------------------------------
+  Score:      44.0 bits
+  E-value:    1.59e-03
+  Identity:   33/76 (43%)
+  Alignment:
+    Query:  target            1 ASASRLGGASGSATSYS---RSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTR
+    Match:                    0 .|.|.|.....|..|.|---|.|..|....|.|..||...|.....|...|--.|||.|
+    Sbjct:  query             7 SSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMS--YRGSSR
+
+======================================================================
+Pair 05: shuffled_seq_01 vs shuffled_seq_06
+Query:   shuffled_seq_01  GASASRLGGASGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTGTLMPSTRRF
+Subject: shuffled_seq_06  RSSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSSTLVSSGGSG
+----------------------------------------------------------------------
+  Score:      38.0 bits
+  E-value:    7.88e-03
+  Identity:   33/69 (47%)
+  Alignment:
+    Query:  target            4 SRLGGASGSAT-SYSRSSTPRASSRTSVYSRSP-YMSYSLSVSPRVSS 50
+    Match:                    0 |||..||.||.-..|.||..|..|.|...|..|-..|.....|..||| 48
+    Sbjct:  query            18 SRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSSTLVSS 66
+
+======================================================================
+Pair 06: shuffled_seq_01 vs shuffled_seq_07
+Query:   shuffled_seq_01  GASASRLGGASGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTGTLMPSTRRF
+Subject: shuffled_seq_07  SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSSVGPLVGSGTST
+----------------------------------------------------------------------
+  Score:      53.0 bits
+  E-value:    1.44e-04
+  Identity:   33/77 (42%)
+  Alignment:
+    Query:  target           10 SGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLR--GSTRYVTGTLMPST
+    Match:                    0 |.|....|..|..||.|.....|.|.|.|...|..||.|...|--...||..|....|.
+    Sbjct:  query             0 SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSS
+
+======================================================================
+Pair 07: shuffled_seq_01 vs shuffled_seq_08
+Query:   shuffled_seq_01  GASASRLGGASGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTGTLMPSTRRF
+Subject: shuffled_seq_08  RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGRTGSFVGRSMS
+----------------------------------------------------------------------
+  Score:      56.0 bits
+  E-value:    6.45e-05
+  Identity:   36/67 (53%)
+  Alignment:
+    Query:  target           13 ATSYSRSSTPRASSRTSVYS------------RSPYMSYSLSVSPRVSSTLRGSTR 57
+    Match:                    0 |.||--||..|.|..|||||------------.|.|....||.||..|..|..|.| 56
+    Sbjct:  query             2 AASY--SSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMR 56
+
+======================================================================
+Pair 08: shuffled_seq_01 vs shuffled_seq_09
+Query:   shuffled_seq_01  GASASRLGGASGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTGTLMPSTRRF
+Subject: shuffled_seq_09  SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRGSYSRRSGTSSRLFLVRASTY
+----------------------------------------------------------------------
+  Score:      65.0 bits
+  E-value:    5.83e-06
+  Identity:   35/77 (45%)
+  Alignment:
+    Query:  target            4 SRLGGASGSATSYS---RSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTG
+    Match:                    0 |..|.||.|.||..---||.||..|......||.---|...|..|..|...|||.....|
+    Sbjct:  query             0 SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRA---SVTRSMVPSTSRPYRGSYSRRSG
+
+======================================================================
+Pair 09: shuffled_seq_01 vs shuffled_seq_10
+Query:   shuffled_seq_01  GASASRLGGASGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTGTLMPSTRRF
+Subject: shuffled_seq_10  LPRGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARSFLSYGATVTS
+----------------------------------------------------------------------
+  Score:      32.0 bits
+  E-value:    3.91e-02
+  Identity:   29/67 (43%)
+  Alignment:
+    Query:  target            1 ASASRLGGASGSATSY--------SRSSTPRASSRTSVYSRSPYMSYSLSVS 45
+    Match:                    0 ...|||-..|||...|--------|..|.....|..|...||-..||...|. 52
+    Sbjct:  query            19 STVSRL-RRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARS-FLSYGATVT 69
+
+======================================================================
+Pair 10: shuffled_seq_02 vs shuffled_seq_03
+Query:   shuffled_seq_02  PRSSSGVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTASGRSR
+Subject: shuffled_seq_03  YGSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGPSMYYRGSLTFSTVV
+----------------------------------------------------------------------
+  Score:      42.0 bits
+  E-value:    2.71e-03
+  Identity:   32/66 (48%)
+  Alignment:
+    Query:  target            8 RMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGS 51
+    Match:                    0 |....|..||..||-.|..|||||.|.......|--..||.|| 43
+    Sbjct:  query            10 RRAMYSVSSTSPSG-PSTAVLRTSTATAGSSLPS--RSSYTGS 50
+
+======================================================================
+Pair 11: shuffled_seq_02 vs shuffled_seq_04
+Query:   shuffled_seq_02  PRSSSGVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTASGRSR
+Subject: shuffled_seq_04  STSVRYRGSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFYYTLSSTG
+----------------------------------------------------------------------
+  Score:      34.0 bits
+  E-value:    2.29e-02
+  Identity:   26/49 (53%)
+  Alignment:
+    Query:  target           11 TTSARSTGSSGSTSLLVL----RTSYASPS 37
+    Match:                    0 .||.|..||------|||----|.||..|| 30
+    Sbjct:  query             0 STSVRYRGS------LVLASSGRSSYSTPS 24
+
+======================================================================
+Pair 12: shuffled_seq_02 vs shuffled_seq_05
+Query:   shuffled_seq_02  PRSSSGVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTASGRSR
+Subject: shuffled_seq_05  PGPLGFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSRATYSVR
+----------------------------------------------------------------------
+  Score:      42.0 bits
+  E-value:    2.71e-03
+  Identity:   31/68 (45%)
+  Alignment:
+    Query:  target            5 GVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTY----------RSFVA--VSYYGSTY
+    Match:                    0 |....|.|....|.||.|.|..|...|..|...||----------|....--.||.||..
+    Sbjct:  query             4 GFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSR
+
+======================================================================
+Pair 13: shuffled_seq_02 vs shuffled_seq_06
+Query:   shuffled_seq_02  PRSSSGVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTASGRSR
+Subject: shuffled_seq_06  RSSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSSTLVSSGGSG
+----------------------------------------------------------------------
+  Score:      51.0 bits
+  E-value:    2.45e-04
+  Identity:   29/58 (50%)
+  Alignment:
+    Query:  target            0 PRSSSGVRRMSTTSARSTGSSGSTSLLVLRTSYAS 35
+    Match:                    0 |..||..||||.|..||.|-.|..||........| 35
+    Sbjct:  query            31 PSYSSSYRRMSSTTPRSYG-PGVRSLTMTSSTLVS 65
+
+======================================================================
+Pair 14: shuffled_seq_02 vs shuffled_seq_07
+Query:   shuffled_seq_02  PRSSSGVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTASGRSR
+Subject: shuffled_seq_07  SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSSVGPLVGSGTST
+----------------------------------------------------------------------
+  Score:      61.0 bits
+  E-value:    1.70e-05
+  Identity:   33/78 (42%)
+  Alignment:
+    Query:  target            2 SSSGVRRMSTTSARSTGSSGSTSLLVLRTSYAS--PSPTYRSFVAVSYYGSTYGSSSLRP
+    Match:                    0 |.||.....|.|.|.|----||........|.|--||...||...|.||.....|..|--
+    Sbjct:  query             0 SRSGYAASTTSSRRAT----STRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGL--
+
+======================================================================
+Pair 15: shuffled_seq_02 vs shuffled_seq_08
+Query:   shuffled_seq_02  PRSSSGVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTASGRSR
+Subject: shuffled_seq_08  RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGRTGSFVGRSMS
+----------------------------------------------------------------------
+  Score:      48.0 bits
+  E-value:    5.46e-04
+  Identity:   31/75 (41%)
+  Alignment:
+    Query:  target            8 RMSTTSARSTGSSGSTSLLVLRTSYASPS-PTYRSF----VAVSYYGSTYGSSSLRPAMR
+    Match:                    0 |.......|...|..||....|..|.|.|-|...|.----...|...||....|.||..|
+    Sbjct:  query             0 RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGR
+
+======================================================================
+Pair 16: shuffled_seq_02 vs shuffled_seq_09
+Query:   shuffled_seq_02  PRSSSGVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTASGRSR
+Subject: shuffled_seq_09  SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRGSYSRRSGTSSRLFLVRASTY
+----------------------------------------------------------------------
+  Score:      37.0 bits
+  E-value:    1.03e-02
+  Identity:   29/78 (37%)
+  Alignment:
+    Query:  target            2 SSSGVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSS 57
+    Match:                    0 .|.|....|.|...|..|.......|.|....|.|..||-----..|....|.|| 55
+    Sbjct:  query            10 TSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYR-----GSYSRRSGTSS 60
+
+======================================================================
+Pair 17: shuffled_seq_02 vs shuffled_seq_10
+Query:   shuffled_seq_02  PRSSSGVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTASGRSR
+Subject: shuffled_seq_10  LPRGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARSFLSYGATVTS
+----------------------------------------------------------------------
+  Score:      64.0 bits
+  E-value:    7.62e-06
+  Identity:   37/76 (48%)
+  Alignment:
+    Query:  target            8 RMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRS--FVAVSYYGST-YGSSSLRPA 61
+    Match:                    0 |...||.|||.|||.....|.|........||.|--.|..||..|.-|.|.|..|| 56
+    Sbjct:  query             2 RGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPA 58
+
+======================================================================
+Pair 18: shuffled_seq_03 vs shuffled_seq_04
+Query:   shuffled_seq_03  YGSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGPSMYYRGSLTFSTVV
+Subject: shuffled_seq_04  STSVRYRGSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFYYTLSSTG
+----------------------------------------------------------------------
+  Score:      71.0 bits
+  E-value:    1.18e-06
+  Identity:   34/79 (43%)
+  Alignment:
+    Query:  target            1 GSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGPSMYY
+    Match:                    0 |||....|.|......|..|||..|....|....|...---.|...|.|...|||||.|
+    Sbjct:  query             7 GSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTAT---MRAPLTSSSVARGPSMFY
+
+======================================================================
+Pair 19: shuffled_seq_03 vs shuffled_seq_05
+Query:   shuffled_seq_03  YGSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGPSMYYRGSLTFSTVV
+Subject: shuffled_seq_05  PGPLGFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSRATYSVR
+----------------------------------------------------------------------
+  Score:      43.0 bits
+  E-value:    2.07e-03
+  Identity:   33/68 (48%)
+  Alignment:
+    Query:  target            8 SSRRAMYSVSST--SPSGPSTA---VLRTSTATAGSSLPS-RSSYTGSARS 53
+    Match:                    0 |..|...|||..--..||.|||---|...|||.......|-..||.||.|. 51
+    Sbjct:  query            14 SPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSRA 65
+
+======================================================================
+Pair 20: shuffled_seq_03 vs shuffled_seq_06
+Query:   shuffled_seq_03  YGSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGPSMYYRGSLTFSTVV
+Subject: shuffled_seq_06  RSSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSSTLVSSGGSG
+----------------------------------------------------------------------
+  Score:      41.0 bits
+  E-value:    3.54e-03
+  Identity:   28/71 (39%)
+  Alignment:
+    Query:  target            0 YGSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYT 48
+    Match:                    0 |........||....|.|...|...|....|.|..|..|..|...|.| 48
+    Sbjct:  query             9 YSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLT 57
+
+======================================================================
+Pair 21: shuffled_seq_03 vs shuffled_seq_07
+Query:   shuffled_seq_03  YGSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGPSMYYRGSLTFSTVV
+Subject: shuffled_seq_07  SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSSVGPLVGSGTST
+----------------------------------------------------------------------
+  Score:      41.0 bits
+  E-value:    3.54e-03
+  Identity:   34/76 (44%)
+  Alignment:
+    Query:  target           11 RAMYSVSSTSP-SGPSTAVLRTS---TATAGSSLPSRSSYTGSARSRGPSMYYRGSLTFS
+    Match:                    0 |..|..|.||.-...||.|.|..---..|..|..|-|||.--|.|....|.|..|....|
+    Sbjct:  query             1 RSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAP-RSSL--SVRYYSLSRYSAGLMRTS
+
+======================================================================
+Pair 22: shuffled_seq_03 vs shuffled_seq_08
+Query:   shuffled_seq_03  YGSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGPSMYYRGSLTFSTVV
+Subject: shuffled_seq_08  RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGRTGSFVGRSMS
+----------------------------------------------------------------------
+  Score:      60.0 bits
+  E-value:    2.22e-05
+  Identity:   31/68 (45%)
+  Alignment:
+    Query:  target           11 RAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGP 56
+    Match:                    0 |...|.||.......|.|..|..|....|.|..||||.||.|..| 45
+    Sbjct:  query             0 RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSP 45
+
+======================================================================
+Pair 23: shuffled_seq_03 vs shuffled_seq_09
+Query:   shuffled_seq_03  YGSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGPSMYYRGSLTFSTVV
+Subject: shuffled_seq_09  SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRGSYSRRSGTSSRLFLVRASTY
+----------------------------------------------------------------------
+  Score:      41.0 bits
+  E-value:    3.54e-03
+  Identity:   35/70 (50%)
+  Alignment:
+    Query:  target           16 VSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSA---RSRGPSMY--YRGS 63
+    Match:                    0 |.|.|.|..|..-|.....|.|||--..|.||..|---||..||..--|||| 52
+    Sbjct:  query             2 VGSASASSTSRG-LGMRSLTPGSS--AYSTYTSRASVTRSMVPSTSRPYRGS 51
+
+======================================================================
+Pair 24: shuffled_seq_03 vs shuffled_seq_10
+Query:   shuffled_seq_03  YGSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGPSMYYRGSLTFSTVV
+Subject: shuffled_seq_10  LPRGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARSFLSYGATVTS
+----------------------------------------------------------------------
+  Score:      40.0 bits
+  E-value:    4.62e-03
+  Identity:   33/74 (44%)
+  Alignment:
+    Query:  target           10 RRAMYSVSSTSPSG--PST-AVLRTSTATA---GSSLPSRSSYTGSARSRGPSMYYRGSL
+    Match:                    0 |.|..|..|||.||--|||-..||.|..|.---......||...........||..|..|
+    Sbjct:  query             2 RGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARSFL
+
+======================================================================
+Pair 25: shuffled_seq_04 vs shuffled_seq_05
+Query:   shuffled_seq_04  STSVRYRGSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFYYTLSSTG
+Subject: shuffled_seq_05  PGPLGFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSRATYSVR
+----------------------------------------------------------------------
+  Score:      57.0 bits
+  E-value:    4.94e-05
+  Identity:   29/72 (40%)
+  Alignment:
+    Query:  target           14 SGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFY 63
+    Match:                    0 |..|..|.|...|||.....|..|||.|..|...........||....| 49
+    Sbjct:  query             7 SSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGY 56
+
+======================================================================
+Pair 26: shuffled_seq_04 vs shuffled_seq_06
+Query:   shuffled_seq_04  STSVRYRGSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFYYTLSSTG
+Subject: shuffled_seq_06  RSSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSSTLVSSGGSG
+----------------------------------------------------------------------
+  Score:      47.0 bits
+  E-value:    7.13e-04
+  Identity:   32/63 (50%)
+  Alignment:
+    Query:  target           29 SGSRRRSRSGRV-TTATMRAPLTSSSVARGP--SMFYYTLSST 69
+    Match:                    0 |.|||.||...|-...|.|....|.|.||.|--|..|...||| 43
+    Sbjct:  query             1 SSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSST 44
+
+======================================================================
+Pair 27: shuffled_seq_04 vs shuffled_seq_07
+Query:   shuffled_seq_04  STSVRYRGSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFYYTLSSTG
+Subject: shuffled_seq_07  SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSSVGPLVGSGTST
+----------------------------------------------------------------------
+  Score:      50.0 bits
+  E-value:    3.20e-04
+  Identity:   26/56 (46%)
+  Alignment:
+    Query:  target           35 SRSGRVTTATMRAPLTSSSVARGPSMFYYTLSS 68
+    Match:                    0 ||||.....|.....||..|.|.||....|..| 33
+    Sbjct:  query             0 SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPS 33
+
+======================================================================
+Pair 28: shuffled_seq_04 vs shuffled_seq_08
+Query:   shuffled_seq_04  STSVRYRGSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFYYTLSSTG
+Subject: shuffled_seq_08  RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGRTGSFVGRSMS
+----------------------------------------------------------------------
+  Score:      50.0 bits
+  E-value:    3.20e-04
+  Identity:   34/72 (47%)
+  Alignment:
+    Query:  target            6 RGSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGR---VTTATMRAPLTSSSV 55
+    Match:                    0 ||.....||.|.|..|-|.||.......|||.|.---.|.|....|..|.|. 52
+    Sbjct:  query             0 RGAASYSSSRRGSRYT-SVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSL 51
+
+======================================================================
+Pair 29: shuffled_seq_04 vs shuffled_seq_09
+Query:   shuffled_seq_04  STSVRYRGSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFYYTLSSTG
+Subject: shuffled_seq_09  SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRGSYSRRSGTSSRLFLVRASTY
+----------------------------------------------------------------------
+  Score:      39.0 bits
+  E-value:    6.03e-03
+  Identity:   29/61 (47%)
+  Alignment:
+    Query:  target           17 SSYSTPSAYSPSSGSRRRS---RSGRVTTATMRAPLTSSSV 55
+    Match:                    0 |.....||.|.|.|...||---.|....|.|.||..|.|.| 41
+    Sbjct:  query             0 SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMV 41
+
+======================================================================
+Pair 30: shuffled_seq_04 vs shuffled_seq_10
+Query:   shuffled_seq_04  STSVRYRGSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFYYTLSSTG
+Subject: shuffled_seq_10  LPRGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARSFLSYGATVTS
+----------------------------------------------------------------------
+  Score:      45.0 bits
+  E-value:    1.22e-03
+  Identity:   35/77 (45%)
+  Alignment:
+    Query:  target           14 SGRSSYSTPSA-YSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFYYTLSS 68
+    Match:                    0 .|.||.||.|.-..||..||.|-|||...|.........|.|.---|..|...|| 55
+    Sbjct:  query             4 AGTSSRSTSSSGLRPSTVSRLR-RSGSTSTYPSTRMVGRSYVS---SRYYASASS 55
+
+======================================================================
+Pair 31: shuffled_seq_05 vs shuffled_seq_06
+Query:   shuffled_seq_05  PGPLGFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSRATYSVR
+Subject: shuffled_seq_06  RSSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSSTLVSSGGSG
+----------------------------------------------------------------------
+  Score:      37.0 bits
+  E-value:    1.03e-02
+  Identity:   27/66 (40%)
+  Alignment:
+    Query:  target           24 TSVRTSSGRSTALTY----VMARSTARSR-RGYASGYMSYRGSSRATY 67
+    Match:                    0 .|.|..|..||...|----..|.||...|-..|.|.|..........| 48
+    Sbjct:  query             1 SSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSY 49
+
+======================================================================
+Pair 32: shuffled_seq_05 vs shuffled_seq_07
+Query:   shuffled_seq_05  PGPLGFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSRATYSVR
+Subject: shuffled_seq_07  SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSSVGPLVGSGTST
+----------------------------------------------------------------------
+  Score:      43.0 bits
+  E-value:    2.07e-03
+  Identity:   29/76 (38%)
+  Alignment:
+    Query:  target            7 SSSSTLSSPTRSSPSVSTSVRTSSGRSTALT---YVMARSTARSRRGYASGYMSYRGSS
+    Match:                    0 ||....|.....|||...|.|.|......|.---|...|..|...|....|.....|.|
+    Sbjct:  query            10 SSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSSVGPLVGSGTS
+
+======================================================================
+Pair 33: shuffled_seq_05 vs shuffled_seq_08
+Query:   shuffled_seq_05  PGPLGFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSRATYSVR
+Subject: shuffled_seq_08  RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGRTGSFVGRSMS
+----------------------------------------------------------------------
+  Score:      40.0 bits
+  E-value:    4.62e-03
+  Identity:   29/62 (46%)
+  Alignment:
+    Query:  target            9 SSTLSSPTRSSPSVS----TSVRTSSGRSTALTYVMARSTARS 48
+    Match:                    0 |.....|.||.|..|----.....|...||.||..|-|.|.|. 43
+    Sbjct:  query            19 STRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSM-RPTGRT 61
+
+======================================================================
+Pair 34: shuffled_seq_05 vs shuffled_seq_09
+Query:   shuffled_seq_05  PGPLGFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSRATYSVR
+Subject: shuffled_seq_09  SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRGSYSRRSGTSSRLFLVRASTY
+----------------------------------------------------------------------
+  Score:      54.0 bits
+  E-value:    1.10e-04
+  Identity:   30/80 (37%)
+  Alignment:
+    Query:  target            2 PLGFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGS
+    Match:                    0 |.|..|.|||.......|.....|...........|..|..||.|..||---.|....|.
+    Sbjct:  query             1 PVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRG---SYSRRSGT
+
+======================================================================
+Pair 35: shuffled_seq_05 vs shuffled_seq_10
+Query:   shuffled_seq_05  PGPLGFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSRATYSVR
+Subject: shuffled_seq_10  LPRGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARSFLSYGATVTS
+----------------------------------------------------------------------
+  Score:      47.0 bits
+  E-value:    7.13e-04
+  Identity:   35/70 (50%)
+  Alignment:
+    Query:  target            7 SSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYAS 54
+    Match:                    0 ||.||.||..|--||.....|.|...||.....|......|.|.||| 47
+    Sbjct:  query             7 SSRSTSSSGLR--PSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYAS 52
+
+======================================================================
+Pair 36: shuffled_seq_06 vs shuffled_seq_07
+Query:   shuffled_seq_06  RSSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSSTLVSSGGSG
+Subject: shuffled_seq_07  SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSSVGPLVGSGTST
+----------------------------------------------------------------------
+  Score:      48.0 bits
+  E-value:    5.46e-04
+  Identity:   33/69 (47%)
+  Alignment:
+    Query:  target           17 TSRLLAASTSAARPPSYSSSYRRMSSTTPRS-----------YGPGVRSLTMTSSTLVSS
+    Match:                    0 ||...|.||...|.||..||.|--.|..|||-----------|..|...-|.....||.|
+    Sbjct:  query             9 TSSRRATSTRVMRSPSFYSSTR--PSGAPRSSLSVRYYSLSRYSAGLMR-TSSVGPLVGS
+
+======================================================================
+Pair 37: shuffled_seq_06 vs shuffled_seq_08
+Query:   shuffled_seq_06  RSSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSSTLVSSGGSG
+Subject: shuffled_seq_08  RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGRTGSFVGRSMS
+----------------------------------------------------------------------
+  Score:      59.0 bits
+  E-value:    2.89e-05
+  Identity:   33/80 (41%)
+  Alignment:
+    Query:  target            1 SSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSS
+    Match:                    0 |||||.|||..|.---..|....|.|.....||..|....|.....|.....|....|.|
+    Sbjct:  query             6 SSSRRGSRYTSVY---STRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGRTGS
+
+======================================================================
+Pair 38: shuffled_seq_06 vs shuffled_seq_09
+Query:   shuffled_seq_06  RSSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSSTLVSSGGSG
+Subject: shuffled_seq_09  SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRGSYSRRSGTSSRLFLVRASTY
+----------------------------------------------------------------------
+  Score:      48.0 bits
+  E-value:    5.46e-04
+  Identity:   32/72 (44%)
+  Alignment:
+    Query:  target            0 RSSSRRVSRYSTVFAYGT-SRLLAASTSAARPPSYSSSYRRMSSTTPRSY 49
+    Match:                    0 ||.....|.|||......-.|....|||--||--|..||.|.|.|..|.. 50
+    Sbjct:  query            17 RSLTPGSSAYSTYTSRASVTRSMVPSTS--RP--YRGSYSRRSGTSSRLF 63
+
+======================================================================
+Pair 39: shuffled_seq_06 vs shuffled_seq_10
+Query:   shuffled_seq_06  RSSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSSTLVSSGGSG
+Subject: shuffled_seq_10  LPRGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARSFLSYGATVTS
+----------------------------------------------------------------------
+  Score:      43.0 bits
+  E-value:    2.07e-03
+  Identity:   28/77 (36%)
+  Alignment:
+    Query:  target            1 SSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRS 55
+    Match:                    0 |...|..|......|...|....|....|---|..|...|......|||..|.| 54
+    Sbjct:  query            19 STVSRLRRSGSTSTYPSTRMVGRSYVSSR---YYASASSMPARSFLSYGATVTS 70
+
+======================================================================
+Pair 40: shuffled_seq_07 vs shuffled_seq_08
+Query:   shuffled_seq_07  SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSSVGPLVGSGTST
+Subject: shuffled_seq_08  RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGRTGSFVGRSMS
+----------------------------------------------------------------------
+  Score:      50.0 bits
+  E-value:    3.20e-04
+  Identity:   32/72 (44%)
+  Alignment:
+    Query:  target            5 AASTTSSRRAT------STRVMRSPSFYSSTRP--SGAPRSSLSVRYYSLSRYSAGLMRT
+    Match:                    0 |||..||||..------||||----...|..||--|....|.||...............|
+    Sbjct:  query             2 AASYSSSRRGSRYTSVYSTRV----AYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPT
+
+======================================================================
+Pair 41: shuffled_seq_07 vs shuffled_seq_09
+Query:   shuffled_seq_07  SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSSVGPLVGSGTST
+Subject: shuffled_seq_09  SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRGSYSRRSGTSSRLFLVRASTY
+----------------------------------------------------------------------
+  Score:      42.0 bits
+  E-value:    2.71e-03
+  Identity:   29/65 (44%)
+  Alignment:
+    Query:  target            3 GYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYY 45
+    Match:                    0 |..|..|...||..||.|-.||.....|.|...||..|.|.. 42
+    Sbjct:  query            22 GSSAYSTYTSRASVTRSM-VPSTSRPYRGSYSRRSGTSSRLF 63
+
+======================================================================
+Pair 42: shuffled_seq_07 vs shuffled_seq_10
+Query:   shuffled_seq_07  SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSSVGPLVGSGTST
+Subject: shuffled_seq_10  LPRGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARSFLSYGATVTS
+----------------------------------------------------------------------
+  Score:      58.0 bits
+  E-value:    3.78e-05
+  Identity:   33/67 (49%)
+  Alignment:
+    Query:  target            2 SGYAASTTSSRRATSTRVMR--SPSFYSSTRPSGAPRSSLSVRYYS 46
+    Match:                    0 |....|....|..|..|..|--|.|.|.|||..|--||..|.|||. 46
+    Sbjct:  query             7 SSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVG--RSYVSSRYYA 51
+
+======================================================================
+Pair 43: shuffled_seq_08 vs shuffled_seq_09
+Query:   shuffled_seq_08  RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGRTGSFVGRSMS
+Subject: shuffled_seq_09  SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRGSYSRRSGTSSRLFLVRASTY
+----------------------------------------------------------------------
+  Score:      56.0 bits
+  E-value:    6.45e-05
+  Identity:   35/59 (59%)
+  Alignment:
+    Query:  target            1 GAASYSSSRRG-------------SRYTSVYS-TRVAYPSRSRPGSSSYT 37
+    Match:                    0 |.||.||..||-------------|.|||..|-||...||.|||...||. 50
+    Sbjct:  query             3 GSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRGSYS 53
+
+======================================================================
+Pair 44: shuffled_seq_08 vs shuffled_seq_10
+Query:   shuffled_seq_08  RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGRTGSFVGRSMS
+Subject: shuffled_seq_10  LPRGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARSFLSYGATVTS
+----------------------------------------------------------------------
+  Score:      42.0 bits
+  E-value:    2.71e-03
+  Identity:   28/60 (46%)
+  Alignment:
+    Query:  target           31 GSSSYTTSALSLSPVASTSLTLSMRPTGRTGSF-----VGRS 68
+    Match:                    0 |.||..||...|.|----|.....|..|.|...-----|||| 42
+    Sbjct:  query             5 GTSSRSTSSSGLRP----STVSRLRRSGSTSTYPSTRMVGRS 43
+
+======================================================================
+Pair 45: shuffled_seq_09 vs shuffled_seq_10
+Query:   shuffled_seq_09  SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRGSYSRRSGTSSRLFLVRASTY
+Subject: shuffled_seq_10  LPRGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARSFLSYGATVTS
+----------------------------------------------------------------------
+  Score:      55.0 bits
+  E-value:    8.42e-05
+  Identity:   32/76 (42%)
+  Alignment:
+    Query:  target            1 PVGSASASSTSRGLGMRSLTPG----SSAYSTYTSRASVTRSMVPSTSRPYRGSYSRRSG
+    Match:                    0 |.|....|......|.|..|..----|...|||.|...|.||.|.|.------.|...|.
+    Sbjct:  query             1 PRGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSR------YYASASS
+
