@@ -39,7 +39,7 @@
 
 ### 2.1 脚本代码与注释
 
-为了完成序列的随机打乱和两两比对，我编写了 `blast_pairwise.sh` 脚本。该脚本内嵌了 Python 代码来处理序列打乱，并使用 BioPython 的 `PairwiseAligner`（Smith-Waterman 算法 + BLOSUM62 矩阵）来模拟 blastp 的核心局部比对逻辑，并计算近似的 E-value。
+为了完成序列的随机打乱和两两比对，我编写了 `blast_pairwise.sh` 脚本。该脚本内嵌了 Python 代码来处理序列打乱并生成独立的 FASTA 文件，然后使用本地安装的 `ncbi-blast+` 工具（`blastp`）直接进行两两序列比对（无需建库）。
 
 ```bash
 #!/usr/bin/env bash
@@ -48,117 +48,124 @@
 # 作者：鲁奥晗  学号：2023012411
 #
 # 功能：
-#   1. 将原始蛋白序列随机打乱，生成10条乱序序列
-#   2. 对这10条序列两两之间进行局部比对（共 C(10,2)=45 对）
-#   3. 将所有比对结果输出到 blast_pairwise_results.txt
+#   1. 将原始蛋白序列随机打乱，生成10条乱序序列，写入独立的 FASTA 文件
+#   2. 对这10条序列两两之间使用本地 blastp 进行比对（共 C(10,2)=45 对）
+#      参考：blastp -query seq1.fasta -subject seq2.fasta -out result
+#   3. 将所有比对结果汇总输出到 blast_pairwise_results.txt
+#
+# 依赖：ncbi-blast+（blastp）、Python3
+# 安装：sudo apt-get install ncbi-blast+
 # ============================================================
+
+set -e  # 遇到错误立即退出
 
 ORIGINAL_SEQ="MSTRSVSSSSYRRMFGGPGTASRPSSSRSYVTTSTRTYSLGSALRPSTSRSLYASSPGGVYATRSSAVRL"
 WORKDIR="$(cd "$(dirname "$0")" && pwd)"
-FASTA_FILE="${WORKDIR}/shuffled_seqs.fasta"
+SEQ_DIR="${WORKDIR}/shuffled_seqs"
 RESULT_FILE="${WORKDIR}/blast_pairwise_results.txt"
 
-# Step 1: 用 Python 生成10条随机打乱的序列，写入 FASTA 文件
-python3 - <<'PYEOF'
-import random
-import os
+# Step 1: 生成10条随机打乱的序列，每条写入独立的 FASTA 文件
+mkdir -p "${SEQ_DIR}"
 
-original = "MSTRSVSSSSYRRMFGGPGTASRPSSSRSYVTTSTRTYSLGSALRPSTSRSLYASSPGGVYATRSSAVRL"
-workdir = os.getcwd()
-fasta_path = os.path.join(workdir, "shuffled_seqs.fasta")
+python3 - <<PYEOF
+import random, os
+
+original = "${ORIGINAL_SEQ}"
+seq_dir  = "${SEQ_DIR}"
 
 random.seed(42)  # 固定随机种子，保证结果可重现
 
-with open(fasta_path, "w") as f:
-    for i in range(1, 11):
-        seq_list = list(original)
-        random.shuffle(seq_list)          # 随机打乱氨基酸顺序
-        shuffled = "".join(seq_list)
+for i in range(1, 11):
+    seq_list = list(original)
+    random.shuffle(seq_list)          # 随机打乱氨基酸顺序
+    shuffled = "".join(seq_list)
+    fasta_path = os.path.join(seq_dir, f"seq_{i:02d}.fasta")
+    with open(fasta_path, "w") as f:
         f.write(f">shuffled_seq_{i:02d}\n{shuffled}\n")
 PYEOF
 
-# Step 2: 执行两两序列比对（本地 Smith-Waterman + BLOSUM62）
-python3 - <<'PYEOF'
-import os
-import itertools
-import math
-from Bio import SeqIO
-from Bio.Align import PairwiseAligner, substitution_matrices
+# Step 2: 两两调用本地 blastp 进行比对（共 C(10,2)=45 对）
+{
+echo "======================================================================"
+echo "  蛋白序列两两 blastp 比对结果"
+echo "  方法：本地 blastp，-query seq_i.fasta -subject seq_j.fasta"
+echo "  参数：-outfmt 0（默认格式），-evalue 10"
+echo "======================================================================"
+echo ""
+} > "${RESULT_FILE}"
 
-workdir = os.getcwd()
-fasta_path = os.path.join(workdir, "shuffled_seqs.fasta")
-result_path = os.path.join(workdir, "blast_pairwise_results.txt")
+PAIR_COUNT=0
 
-records = list(SeqIO.parse(fasta_path, "fasta"))
+# 遍历所有 (i, j) 组合，i < j
+for i in $(seq 1 10); do
+    for j in $(seq $((i+1)) 10); do
+        PAIR_COUNT=$((PAIR_COUNT + 1))
+        I_STR=$(printf "%02d" $i)
+        J_STR=$(printf "%02d" $j)
 
-# 配置 PairwiseAligner（局部比对，BLOSUM62，与 blastp 默认参数一致）
-aligner = PairwiseAligner()
-aligner.mode = "local"                           # 局部比对（Smith-Waterman）
-aligner.substitution_matrix = substitution_matrices.load("BLOSUM62")
-aligner.open_gap_score = -11                     # gap open penalty
-aligner.extend_gap_score = -1                    # gap extend penalty
+        QUERY="${SEQ_DIR}/seq_${I_STR}.fasta"
+        SUBJECT="${SEQ_DIR}/seq_${J_STR}.fasta"
 
-# E-value 近似计算参数（blastp 典型值）
-K = 0.041
-LAMBDA = 0.267
+        {
+        echo "======================================================================"
+        echo "Pair ${PAIR_COUNT}: shuffled_seq_${I_STR} vs shuffled_seq_${J_STR}"
+        echo "----------------------------------------------------------------------"
+        } >> "${RESULT_FILE}"
 
-pairs = list(itertools.combinations(range(len(records)), 2))
+        # 调用本地 blastp 进行两序列直接比对
+        # -query:   查询序列 FASTA 文件
+        # -subject: 目标序列 FASTA 文件（直接两序列比对，无需建库）
+        # -evalue:  E-value 阈值（设为 10，保留所有比对结果）
+        # -outfmt 0: 默认的 pairwise 格式输出（含比对详情）
+        blastp \
+            -query   "${QUERY}"   \
+            -subject "${SUBJECT}" \
+            -evalue  10           \
+            -outfmt  0            \
+            >> "${RESULT_FILE}" 2>&1
 
-with open(result_path, "w") as out:
-    for idx, (i, j) in enumerate(pairs, 1):
-        seq_i = records[i]
-        seq_j = records[j]
-        s_i = str(seq_i.seq)
-        s_j = str(seq_j.seq)
-
-        # 执行比对
-        alignments = aligner.align(s_i, s_j)
-        best = alignments[0]
-        score = best.score
-
-        # 提取比对字符串
-        aligned_str = str(best).split("\n")
-        query_aln  = aligned_str[0] if len(aligned_str) > 0 else ""
-        match_line = aligned_str[1] if len(aligned_str) > 1 else ""
-        sbjct_aln  = aligned_str[2] if len(aligned_str) > 2 else ""
-
-        # 计算 identity
-        identities = sum(1 for a, b in zip(query_aln, sbjct_aln) if a == b and a != '-')
-        align_len = sum(1 for a in query_aln if a != '-')
-
-        # 近似 E-value 计算：E = K * m * n * exp(-λ * S)
-        evalue = K * len(s_i) * len(s_j) * math.exp(-LAMBDA * score)
-
-        out.write(f"Pair {idx:02d}: {seq_i.id} vs {seq_j.id}\n")
-        out.write(f"  Score:      {score:.1f} bits\n")
-        out.write(f"  E-value:    {evalue:.2e}\n")
-        out.write(f"  Identity:   {identities}/{align_len} ({int(100*identities/align_len)}%)\n\n")
-PYEOF
+        echo "" >> "${RESULT_FILE}"
+    done
+done
 ```
 
 ### 2.2 结果示例与解释
 
-以下是 `blast_pairwise_results.txt` 中的部分结果示例：
+在 45 对比对中，有 16 对结果为 `***** No hits found *****`，其余 29 对找到了局部匹配。以下是 `blast_pairwise_results.txt` 中有命中的部分结果示例：
 
-```
-Pair 01: shuffled_seq_01 vs shuffled_seq_02
-Query:   shuffled_seq_01  GASASRLGGASGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTGTLMPSTRRF
-Subject: shuffled_seq_02  PRSSSGVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTASGRSR
+```text
+======================================================================
+Pair 2: shuffled_seq_01 vs shuffled_seq_03
 ----------------------------------------------------------------------
-  Score:      44.0 bits
-  E-value:    1.59e-03
-  Identity:   32/71 (45%)
-  Alignment:
-    Query:  target            2 SASRLGGASGSA------TSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSS 50
-    Match:                    0 ...|..|.|||.------|||...|....|.....|..|.|.|.||....|..| 54
-    Sbjct:  query            12 TSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTAS 66
+...
+Query= shuffled_seq_01
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+shuffled_seq_03                                                        9.2    8.9  
+
+> shuffled_seq_03
+Length=70
+
+ Score =  9.2 bits (12),  Expect = 8.9, Method: Compositional matrix adjust.
+ Identities = 4/6 (67%), Positives = 5/6 (83%), Gaps = 0/6 (0%)
+
+Query  11  SGSATS  16
+           +GSA S
+Sbjct  48  TGSARS  53
 ```
 
-**结果解释**：由于这 10 条序列都是由同一条原始序列随机打乱生成的，它们的氨基酸组成（Composition）完全相同，但序列顺序（Order）被破坏。
+**结果解释**：
+由于这 10 条序列都是由同一条原始序列随机打乱生成的，它们的氨基酸组成（Composition）完全相同，但序列顺序（Order）被破坏。
 
-1. **低得分与高 E-value**：尽管氨基酸组成相同，但两两比对的得分（Score）普遍较低（如 44.0 bits），且 E-value 相对较大（如 1.59e-03）。这说明它们之间没有显著的进化同源性，比对上的片段主要是由于氨基酸组成偏好（如富含 S、R 等残基）导致的随机匹配。
+1. **极低的得分与极高的 E-value**：
+   在找到的匹配中，得分（Score）普遍极低（通常在 9.2 到 20.8 bits 之间），且 E-value 极大（如 8.9、1.1 等，远大于通常认为显著的 0.05 阈值）。这说明它们之间**没有显著的进化同源性**。
+   
+2. **短小的局部匹配**：
+   `blastp` 找到的匹配区域非常短（通常只有 6 到 20 个氨基酸长度），这主要是由于原始序列中富含丝氨酸（S）、精氨酸（R）和苏氨酸（T）等残基，随机打乱后偶然形成了短的相似片段。
 
-1. **局部匹配**：Smith-Waterman 算法找到的都是较短的局部匹配区域（如长度 50-60 左右），且包含较多 Gap（空位），Identity 仅在 40%-50% 左右。这进一步证明了打乱序列破坏了原有的结构域和保守基序。
+3. **大量无匹配（No hits found）**：
+   有超过三分之一（16/45）的序列对连这种短小的随机匹配都找不到，直接返回 `No hits found`。这进一步证明了仅仅氨基酸组成相同，并不足以在 BLAST 搜索中产生有意义的比对结果，序列的**排列顺序**才是决定蛋白质结构和同源性的关键。
 
 ---
 

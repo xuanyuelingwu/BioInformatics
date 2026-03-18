@@ -1,591 +1,3113 @@
 ======================================================================
-  蛋白序列两两比对结果（Smith-Waterman + BLOSUM62）
-  模拟 blastp 核心比对逻辑
-  参数：局部比对，gap open=-11，gap extend=-1
+  蛋白序列两两 blastp 比对结果
+  方法：本地 blastp，-query seq_i.fasta -subject seq_j.fasta
+  参数：-outfmt 0（默认格式），-evalue 10
 ======================================================================
 
 ======================================================================
-Pair 01: shuffled_seq_01 vs shuffled_seq_02
-Query:   shuffled_seq_01  GASASRLGGASGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTGTLMPSTRRF
-Subject: shuffled_seq_02  PRSSSGVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTASGRSR
+Pair 1: shuffled_seq_01 vs shuffled_seq_02
 ----------------------------------------------------------------------
-  Score:      44.0 bits
-  E-value:    1.59e-03
-  Identity:   32/71 (45%)
-  Alignment:
-    Query:  target            2 SASRLGGASGSA------TSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSS 50
-    Match:                    0 ...|..|.|||.------|||...|....|.....|..|.|.|.||....|..| 54
-    Sbjct:  query            12 TSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTAS 66
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_02.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_01
+
+Length=70
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_02.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
-Pair 02: shuffled_seq_01 vs shuffled_seq_03
-Query:   shuffled_seq_01  GASASRLGGASGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTGTLMPSTRRF
-Subject: shuffled_seq_03  YGSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGPSMYYRGSLTFSTVV
+Pair 2: shuffled_seq_01 vs shuffled_seq_03
 ----------------------------------------------------------------------
-  Score:      55.0 bits
-  E-value:    8.42e-05
-  Identity:   35/80 (43%)
-  Alignment:
-    Query:  target           10 SGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTGTLMPST 67
-    Match:                    0 ||..|...|.||..|.|--|..|||.|..---------|...||...|..|.|..|| 57
-    Sbjct:  query            22 SGPSTAVLRTSTATAGS--SLPSRSSYTG---------SARSRGPSMYYRGSLTFST 68
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_03.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_01
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_03                                                        9.2    8.9  
+
+
+> shuffled_seq_03
+Length=70
+
+ Score =  9.2 bits (12),  Expect = 8.9, Method: Compositional matrix adjust.
+ Identities = 4/6 (67%), Positives = 5/6 (83%), Gaps = 0/6 (0%)
+
+Query  11  SGSATS  16
+           +GSA S
+Sbjct  48  TGSARS  53
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_03.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
-Pair 03: shuffled_seq_01 vs shuffled_seq_04
-Query:   shuffled_seq_01  GASASRLGGASGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTGTLMPSTRRF
-Subject: shuffled_seq_04  STSVRYRGSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFYYTLSSTG
+Pair 3: shuffled_seq_01 vs shuffled_seq_04
 ----------------------------------------------------------------------
-  Score:      44.0 bits
-  E-value:    1.59e-03
-  Identity:   29/72 (40%)
-  Alignment:
-    Query:  target            9 ASGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTL-RGSTRY 58
-    Match:                    0 ||....|||..|....||.....|||..........|..||..-||.... 50
-    Sbjct:  query            12 ASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMF 62
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_04.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_01
+
+Length=70
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_04.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
-Pair 04: shuffled_seq_01 vs shuffled_seq_05
-Query:   shuffled_seq_01  GASASRLGGASGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTGTLMPSTRRF
-Subject: shuffled_seq_05  PGPLGFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSRATYSVR
+Pair 4: shuffled_seq_01 vs shuffled_seq_05
 ----------------------------------------------------------------------
-  Score:      44.0 bits
-  E-value:    1.59e-03
-  Identity:   33/76 (43%)
-  Alignment:
-    Query:  target            1 ASASRLGGASGSATSYS---RSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTR
-    Match:                    0 .|.|.|.....|..|.|---|.|..|....|.|..||...|.....|...|--.|||.|
-    Sbjct:  query             7 SSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMS--YRGSSR
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_05.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_01
+
+Length=70
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_05.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
-Pair 05: shuffled_seq_01 vs shuffled_seq_06
-Query:   shuffled_seq_01  GASASRLGGASGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTGTLMPSTRRF
-Subject: shuffled_seq_06  RSSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSSTLVSSGGSG
+Pair 5: shuffled_seq_01 vs shuffled_seq_06
 ----------------------------------------------------------------------
-  Score:      38.0 bits
-  E-value:    7.88e-03
-  Identity:   33/69 (47%)
-  Alignment:
-    Query:  target            4 SRLGGASGSAT-SYSRSSTPRASSRTSVYSRSP-YMSYSLSVSPRVSS 50
-    Match:                    0 |||..||.||.-..|.||..|..|.|...|..|-..|.....|..||| 48
-    Sbjct:  query            18 SRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSSTLVSS 66
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_06.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_01
+
+Length=70
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_06.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
-Pair 06: shuffled_seq_01 vs shuffled_seq_07
-Query:   shuffled_seq_01  GASASRLGGASGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTGTLMPSTRRF
-Subject: shuffled_seq_07  SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSSVGPLVGSGTST
+Pair 6: shuffled_seq_01 vs shuffled_seq_07
 ----------------------------------------------------------------------
-  Score:      53.0 bits
-  E-value:    1.44e-04
-  Identity:   33/77 (42%)
-  Alignment:
-    Query:  target           10 SGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLR--GSTRYVTGTLMPST
-    Match:                    0 |.|....|..|..||.|.....|.|.|.|...|..||.|...|--...||..|....|.
-    Sbjct:  query             0 SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSS
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_07.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_01
+
+Length=70
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_07.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
-Pair 07: shuffled_seq_01 vs shuffled_seq_08
-Query:   shuffled_seq_01  GASASRLGGASGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTGTLMPSTRRF
-Subject: shuffled_seq_08  RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGRTGSFVGRSMS
+Pair 7: shuffled_seq_01 vs shuffled_seq_08
 ----------------------------------------------------------------------
-  Score:      56.0 bits
-  E-value:    6.45e-05
-  Identity:   36/67 (53%)
-  Alignment:
-    Query:  target           13 ATSYSRSSTPRASSRTSVYS------------RSPYMSYSLSVSPRVSSTLRGSTR 57
-    Match:                    0 |.||--||..|.|..|||||------------.|.|....||.||..|..|..|.| 56
-    Sbjct:  query             2 AASY--SSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMR 56
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_08.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_01
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_08                                                        9.2    9.8  
+
+
+> shuffled_seq_08
+Length=70
+
+ Score =  9.2 bits (12),  Expect = 9.8, Method: Compositional matrix adjust.
+ Identities = 3/6 (50%), Positives = 3/6 (50%), Gaps = 0/6 (0%)
+
+Query  58  YVTGTL  63
+           Y T  L
+Sbjct  36  YTTSAL  41
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_08.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
-Pair 08: shuffled_seq_01 vs shuffled_seq_09
-Query:   shuffled_seq_01  GASASRLGGASGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTGTLMPSTRRF
-Subject: shuffled_seq_09  SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRGSYSRRSGTSSRLFLVRASTY
+Pair 8: shuffled_seq_01 vs shuffled_seq_09
 ----------------------------------------------------------------------
-  Score:      65.0 bits
-  E-value:    5.83e-06
-  Identity:   35/77 (45%)
-  Alignment:
-    Query:  target            4 SRLGGASGSATSYS---RSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTG
-    Match:                    0 |..|.||.|.||..---||.||..|......||.---|...|..|..|...|||.....|
-    Sbjct:  query             0 SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRA---SVTRSMVPSTSRPYRGSYSRRSG
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_09.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_01
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_09                                                       11.9    0.89 
+
+
+> shuffled_seq_09
+Length=70
+
+ Score = 11.9 bits (19),  Expect = 0.89, Method: Compositional matrix adjust.
+ Identities = 20/52 (38%), Positives = 29/52 (56%), Gaps = 6/52 (12%)
+
+Query  7   LGGASGSATSYS---RSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGS  55
+           +G AS S+TS     RS TP +S+ ++  SR+   S + S+ P  S   RGS
+Sbjct  3   VGSASASSTSRGLGMRSLTPGSSAYSTYTSRA---SVTRSMVPSTSRPYRGS  51
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_09.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
-Pair 09: shuffled_seq_01 vs shuffled_seq_10
-Query:   shuffled_seq_01  GASASRLGGASGSATSYSRSSTPRASSRTSVYSRSPYMSYSLSVSPRVSSTLRGSTRYVTGTLMPSTRRF
-Subject: shuffled_seq_10  LPRGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARSFLSYGATVTS
+Pair 9: shuffled_seq_01 vs shuffled_seq_10
 ----------------------------------------------------------------------
-  Score:      32.0 bits
-  E-value:    3.91e-02
-  Identity:   29/67 (43%)
-  Alignment:
-    Query:  target            1 ASASRLGGASGSATSY--------SRSSTPRASSRTSVYSRSPYMSYSLSVS 45
-    Match:                    0 ...|||-..|||...|--------|..|.....|..|...||-..||...|. 52
-    Sbjct:  query            19 STVSRL-RRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARS-FLSYGATVT 69
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_10.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_01
+
+Length=70
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_10.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 10: shuffled_seq_02 vs shuffled_seq_03
-Query:   shuffled_seq_02  PRSSSGVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTASGRSR
-Subject: shuffled_seq_03  YGSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGPSMYYRGSLTFSTVV
 ----------------------------------------------------------------------
-  Score:      42.0 bits
-  E-value:    2.71e-03
-  Identity:   32/66 (48%)
-  Alignment:
-    Query:  target            8 RMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGS 51
-    Match:                    0 |....|..||..||-.|..|||||.|.......|--..||.|| 43
-    Sbjct:  query            10 RRAMYSVSSTSPSG-PSTAVLRTSTATAGSSLPS--RSSYTGS 50
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_03.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_02
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_03                                                       11.9    1.1  
+
+
+> shuffled_seq_03
+Length=70
+
+ Score = 11.9 bits (19),  Expect = 1.1, Method: Compositional matrix adjust.
+ Identities = 5/7 (71%), Positives = 5/7 (71%), Gaps = 0/7 (0%)
+
+Query  64  TASGRSR  70
+           T S RSR
+Sbjct  48  TGSARSR  54
+
+
+ Score = 11.2 bits (17),  Expect = 1.7, Method: Compositional matrix adjust.
+ Identities = 4/6 (67%), Positives = 4/6 (67%), Gaps = 0/6 (0%)
+
+Query  36  PSPTYR  41
+           PS  YR
+Sbjct  56  PSMYYR  61
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_03.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 11: shuffled_seq_02 vs shuffled_seq_04
-Query:   shuffled_seq_02  PRSSSGVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTASGRSR
-Subject: shuffled_seq_04  STSVRYRGSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFYYTLSSTG
 ----------------------------------------------------------------------
-  Score:      34.0 bits
-  E-value:    2.29e-02
-  Identity:   26/49 (53%)
-  Alignment:
-    Query:  target           11 TTSARSTGSSGSTSLLVL----RTSYASPS 37
-    Match:                    0 .||.|..||------|||----|.||..|| 30
-    Sbjct:  query             0 STSVRYRGS------LVLASSGRSSYSTPS 24
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_04.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_02
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_04                                                       13.9    0.22 
+
+
+> shuffled_seq_04
+Length=70
+
+ Score = 13.9 bits (24),  Expect = 0.22, Method: Compositional matrix adjust.
+ Identities = 5/8 (63%), Positives = 8/8 (100%), Gaps = 0/8 (0%)
+
+Query  30  RTSYASPS  37
+           R+SY++PS
+Sbjct  17  RSSYSTPS  24
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_04.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 12: shuffled_seq_02 vs shuffled_seq_05
-Query:   shuffled_seq_02  PRSSSGVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTASGRSR
-Subject: shuffled_seq_05  PGPLGFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSRATYSVR
 ----------------------------------------------------------------------
-  Score:      42.0 bits
-  E-value:    2.71e-03
-  Identity:   31/68 (45%)
-  Alignment:
-    Query:  target            5 GVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTY----------RSFVA--VSYYGSTY
-    Match:                    0 |....|.|....|.||.|.|..|...|..|...||----------|....--.||.||..
-    Sbjct:  query             4 GFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSR
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_05.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_02
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_05                                                       11.5    1.3  
+
+
+> shuffled_seq_05
+Length=70
+
+ Score = 11.5 bits (18),  Expect = 1.3, Method: Compositional matrix adjust.
+ Identities = 6/12 (50%), Positives = 7/12 (58%), Gaps = 0/12 (0%)
+
+Query  30  RTSYASPSPTYR  41
+           R  YAS   +YR
+Sbjct  49  RRGYASGYMSYR  60
+
+
+ Score = 11.5 bits (18),  Expect = 1.4, Method: Compositional matrix adjust.
+ Identities = 6/14 (43%), Positives = 10/14 (71%), Gaps = 0/14 (0%)
+
+Query  46  VSYYGSTYGSSSLR  59
+           +SY GS+  + S+R
+Sbjct  57  MSYRGSSRATYSVR  70
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_05.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 13: shuffled_seq_02 vs shuffled_seq_06
-Query:   shuffled_seq_02  PRSSSGVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTASGRSR
-Subject: shuffled_seq_06  RSSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSSTLVSSGGSG
 ----------------------------------------------------------------------
-  Score:      51.0 bits
-  E-value:    2.45e-04
-  Identity:   29/58 (50%)
-  Alignment:
-    Query:  target            0 PRSSSGVRRMSTTSARSTGSSGSTSLLVLRTSYAS 35
-    Match:                    0 |..||..||||.|..||.|-.|..||........| 35
-    Sbjct:  query            31 PSYSSSYRRMSSTTPRSYG-PGVRSLTMTSSTLVS 65
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_06.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_02
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_06                                                       10.8    2.4  
+
+
+> shuffled_seq_06
+Length=70
+
+ Score = 10.8 bits (16),  Expect = 2.4, Method: Compositional matrix adjust.
+ Identities = 11/23 (48%), Positives = 15/23 (65%), Gaps = 2/23 (9%)
+
+Query  1   PRS-SSGVRRMSTTSARSTGSSG  22
+           PRS   GVR ++ TS+ +  SSG
+Sbjct  46  PRSYGPGVRSLTMTSS-TLVSSG  67
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_06.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 14: shuffled_seq_02 vs shuffled_seq_07
-Query:   shuffled_seq_02  PRSSSGVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTASGRSR
-Subject: shuffled_seq_07  SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSSVGPLVGSGTST
 ----------------------------------------------------------------------
-  Score:      61.0 bits
-  E-value:    1.70e-05
-  Identity:   33/78 (42%)
-  Alignment:
-    Query:  target            2 SSSGVRRMSTTSARSTGSSGSTSLLVLRTSYAS--PSPTYRSFVAVSYYGSTYGSSSLRP
-    Match:                    0 |.||.....|.|.|.|----||........|.|--||...||...|.||.....|..|--
-    Sbjct:  query             0 SRSGYAASTTSSRRAT----STRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGL--
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_07.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_02
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_07                                                       10.0    4.9  
+
+
+> shuffled_seq_07
+Length=70
+
+ Score = 10.0 bits (14),  Expect = 4.9, Method: Compositional matrix adjust.
+ Identities = 3/6 (50%), Positives = 5/6 (83%), Gaps = 0/6 (0%)
+
+Query  30  RTSYAS  35
+           R+ YA+
+Sbjct  2   RSGYAA  7
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_07.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 15: shuffled_seq_02 vs shuffled_seq_08
-Query:   shuffled_seq_02  PRSSSGVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTASGRSR
-Subject: shuffled_seq_08  RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGRTGSFVGRSMS
 ----------------------------------------------------------------------
-  Score:      48.0 bits
-  E-value:    5.46e-04
-  Identity:   31/75 (41%)
-  Alignment:
-    Query:  target            8 RMSTTSARSTGSSGSTSLLVLRTSYASPS-PTYRSF----VAVSYYGSTYGSSSLRPAMR
-    Match:                    0 |.......|...|..||....|..|.|.|-|...|.----...|...||....|.||..|
-    Sbjct:  query             0 RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGR
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_08.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_02
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_08                                                       13.1    0.35 
+
+
+> shuffled_seq_08
+Length=70
+
+ Score = 13.1 bits (22),  Expect = 0.35, Method: Compositional matrix adjust.
+ Identities = 9/15 (60%), Positives = 9/15 (60%), Gaps = 0/15 (0%)
+
+Query  12  TTSARSTGSSGSTSL  26
+           TTSA S     STSL
+Sbjct  37  TTSALSLSPVASTSL  51
+
+
+ Score =  9.6 bits (13),  Expect = 7.7, Method: Compositional matrix adjust.
+ Identities = 3/6 (50%), Positives = 5/6 (83%), Gaps = 0/6 (0%)
+
+Query  53  YGSSSL  58
+           Y +S+L
+Sbjct  36  YTTSAL  41
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_08.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 16: shuffled_seq_02 vs shuffled_seq_09
-Query:   shuffled_seq_02  PRSSSGVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTASGRSR
-Subject: shuffled_seq_09  SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRGSYSRRSGTSSRLFLVRASTY
 ----------------------------------------------------------------------
-  Score:      37.0 bits
-  E-value:    1.03e-02
-  Identity:   29/78 (37%)
-  Alignment:
-    Query:  target            2 SSSGVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSS 57
-    Match:                    0 .|.|....|.|...|..|.......|.|....|.|..||-----..|....|.|| 55
-    Sbjct:  query            10 TSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYR-----GSYSRRSGTSS 60
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_09.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_02
+
+Length=70
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_09.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 17: shuffled_seq_02 vs shuffled_seq_10
-Query:   shuffled_seq_02  PRSSSGVRRMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRSFVAVSYYGSTYGSSSLRPAMRTASGRSR
-Subject: shuffled_seq_10  LPRGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARSFLSYGATVTS
 ----------------------------------------------------------------------
-  Score:      64.0 bits
-  E-value:    7.62e-06
-  Identity:   37/76 (48%)
-  Alignment:
-    Query:  target            8 RMSTTSARSTGSSGSTSLLVLRTSYASPSPTYRS--FVAVSYYGST-YGSSSLRPA 61
-    Match:                    0 |...||.|||.|||.....|.|........||.|--.|..||..|.-|.|.|..|| 56
-    Sbjct:  query             2 RGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPA 58
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_10.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_02
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_10                                                       10.8    2.6  
+
+
+> shuffled_seq_10
+Length=70
+
+ Score = 10.8 bits (16),  Expect = 2.6, Method: Compositional matrix adjust.
+ Identities = 6/14 (43%), Positives = 9/14 (64%), Gaps = 0/14 (0%)
+
+Query  1   PRSSSGVRRMSTTS  14
+           P + S +RR  +TS
+Sbjct  19  PSTVSRLRRSGSTS  32
+
+
+ Score = 10.4 bits (15),  Expect = 3.5, Method: Compositional matrix adjust.
+ Identities = 5/16 (31%), Positives = 10/16 (63%), Gaps = 0/16 (0%)
+
+Query  6   GVRRMSTTSARSTGSS  21
+           G+R  + +  R +GS+
+Sbjct  16  GLRPSTVSRLRRSGST  31
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_10.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 18: shuffled_seq_03 vs shuffled_seq_04
-Query:   shuffled_seq_03  YGSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGPSMYYRGSLTFSTVV
-Subject: shuffled_seq_04  STSVRYRGSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFYYTLSSTG
 ----------------------------------------------------------------------
-  Score:      71.0 bits
-  E-value:    1.18e-06
-  Identity:   34/79 (43%)
-  Alignment:
-    Query:  target            1 GSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGPSMYY
-    Match:                    0 |||....|.|......|..|||..|....|....|...---.|...|.|...|||||.|
-    Sbjct:  query             7 GSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTAT---MRAPLTSSSVARGPSMFY
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_04.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_03
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_04                                                       20.8    5e-04
+
+
+> shuffled_seq_04
+Length=70
+
+ Score = 20.8 bits (42),  Expect = 5e-04, Method: Compositional matrix adjust.
+ Identities = 9/17 (53%), Positives = 13/17 (76%), Gaps = 0/17 (0%)
+
+Query  44  RSSYTGSARSRGPSMYY  60
+           R+  T S+ +RGPSM+Y
+Sbjct  47  RAPLTSSSVARGPSMFY  63
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_04.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 19: shuffled_seq_03 vs shuffled_seq_05
-Query:   shuffled_seq_03  YGSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGPSMYYRGSLTFSTVV
-Subject: shuffled_seq_05  PGPLGFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSRATYSVR
 ----------------------------------------------------------------------
-  Score:      43.0 bits
-  E-value:    2.07e-03
-  Identity:   33/68 (48%)
-  Alignment:
-    Query:  target            8 SSRRAMYSVSST--SPSGPSTA---VLRTSTATAGSSLPS-RSSYTGSARS 53
-    Match:                    0 |..|...|||..--..||.|||---|...|||.......|-..||.||.|. 51
-    Sbjct:  query            14 SPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSRA 65
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_05.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_03
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_05                                                       11.2    2.3  
+
+
+> shuffled_seq_05
+Length=70
+
+ Score = 11.2 bits (17),  Expect = 2.3, Method: Compositional matrix adjust.
+ Identities = 7/13 (54%), Positives = 8/13 (62%), Gaps = 2/13 (15%)
+
+Query  58  MYYRGS--LTFST  68
+           M YRGS   T+S 
+Sbjct  57  MSYRGSSRATYSV  69
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_05.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 20: shuffled_seq_03 vs shuffled_seq_06
-Query:   shuffled_seq_03  YGSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGPSMYYRGSLTFSTVV
-Subject: shuffled_seq_06  RSSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSSTLVSSGGSG
 ----------------------------------------------------------------------
-  Score:      41.0 bits
-  E-value:    3.54e-03
-  Identity:   28/71 (39%)
-  Alignment:
-    Query:  target            0 YGSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYT 48
-    Match:                    0 |........||....|.|...|...|....|.|..|..|..|...|.| 48
-    Sbjct:  query             9 YSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLT 57
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_06.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_03
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_06                                                       11.9    1.1  
+
+
+> shuffled_seq_06
+Length=70
+
+ Score = 11.9 bits (19),  Expect = 1.1, Method: Compositional matrix adjust.
+ Identities = 4/7 (57%), Positives = 5/7 (71%), Gaps = 0/7 (0%)
+
+Query  52  RSRGPSM  58
+           RS GP +
+Sbjct  47  RSYGPGV  53
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_06.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 21: shuffled_seq_03 vs shuffled_seq_07
-Query:   shuffled_seq_03  YGSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGPSMYYRGSLTFSTVV
-Subject: shuffled_seq_07  SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSSVGPLVGSGTST
 ----------------------------------------------------------------------
-  Score:      41.0 bits
-  E-value:    3.54e-03
-  Identity:   34/76 (44%)
-  Alignment:
-    Query:  target           11 RAMYSVSSTSP-SGPSTAVLRTS---TATAGSSLPSRSSYTGSARSRGPSMYYRGSLTFS
-    Match:                    0 |..|..|.||.-...||.|.|..---..|..|..|-|||.--|.|....|.|..|....|
-    Sbjct:  query             1 RSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAP-RSSL--SVRYYSLSRYSAGLMRTS
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_07.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_03
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_07                                                       12.7    0.60 
+
+
+> shuffled_seq_07
+Length=70
+
+ Score = 12.7 bits (21),  Expect = 0.60, Method: Compositional matrix adjust.
+ Identities = 4/6 (67%), Positives = 4/6 (67%), Gaps = 0/6 (0%)
+
+Query  54  RGPSMY  59
+           R PS Y
+Sbjct  22  RSPSFY  27
+
+
+ Score = 10.8 bits (16),  Expect = 2.6, Method: Compositional matrix adjust.
+ Identities = 5/6 (83%), Positives = 5/6 (83%), Gaps = 0/6 (0%)
+
+Query  8   RSSRRA  13
+            SSRRA
+Sbjct  10  TSSRRA  15
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_07.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 22: shuffled_seq_03 vs shuffled_seq_08
-Query:   shuffled_seq_03  YGSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGPSMYYRGSLTFSTVV
-Subject: shuffled_seq_08  RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGRTGSFVGRSMS
 ----------------------------------------------------------------------
-  Score:      60.0 bits
-  E-value:    2.22e-05
-  Identity:   31/68 (45%)
-  Alignment:
-    Query:  target           11 RAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGP 56
-    Match:                    0 |...|.||.......|.|..|..|....|.|..||||.||.|..| 45
-    Sbjct:  query             0 RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSP 45
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_08.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_03
+
+Length=70
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_08.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 23: shuffled_seq_03 vs shuffled_seq_09
-Query:   shuffled_seq_03  YGSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGPSMYYRGSLTFSTVV
-Subject: shuffled_seq_09  SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRGSYSRRSGTSSRLFLVRASTY
 ----------------------------------------------------------------------
-  Score:      41.0 bits
-  E-value:    3.54e-03
-  Identity:   35/70 (50%)
-  Alignment:
-    Query:  target           16 VSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSA---RSRGPSMY--YRGS 63
-    Match:                    0 |.|.|.|..|..-|.....|.|||--..|.||..|---||..||..--|||| 52
-    Sbjct:  query             2 VGSASASSTSRG-LGMRSLTPGSS--AYSTYTSRASVTRSMVPSTSRPYRGS 51
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_09.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_03
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_09                                                        9.6    7.7  
+
+
+> shuffled_seq_09
+Length=70
+
+ Score =  9.6 bits (13),  Expect = 7.7, Method: Compositional matrix adjust.
+ Identities = 3/7 (43%), Positives = 5/7 (71%), Gaps = 0/7 (0%)
+
+Query  42  PSRSSYT  48
+           P  S+Y+
+Sbjct  22  PGSSAYS  28
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_09.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 24: shuffled_seq_03 vs shuffled_seq_10
-Query:   shuffled_seq_03  YGSLRSRRSSRRAMYSVSSTSPSGPSTAVLRTSTATAGSSLPSRSSYTGSARSRGPSMYYRGSLTFSTVV
-Subject: shuffled_seq_10  LPRGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARSFLSYGATVTS
 ----------------------------------------------------------------------
-  Score:      40.0 bits
-  E-value:    4.62e-03
-  Identity:   33/74 (44%)
-  Alignment:
-    Query:  target           10 RRAMYSVSSTSPSG--PST-AVLRTSTATA---GSSLPSRSSYTGSARSRGPSMYYRGSL
-    Match:                    0 |.|..|..|||.||--|||-..||.|..|.---......||...........||..|..|
-    Sbjct:  query             2 RGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARSFL
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_10.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_03
+
+Length=70
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_10.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 25: shuffled_seq_04 vs shuffled_seq_05
-Query:   shuffled_seq_04  STSVRYRGSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFYYTLSSTG
-Subject: shuffled_seq_05  PGPLGFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSRATYSVR
 ----------------------------------------------------------------------
-  Score:      57.0 bits
-  E-value:    4.94e-05
-  Identity:   29/72 (40%)
-  Alignment:
-    Query:  target           14 SGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFY 63
-    Match:                    0 |..|..|.|...|||.....|..|||.|..|...........||....| 49
-    Sbjct:  query             7 SSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGY 56
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_05.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_04
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_05                                                       10.0    5.3  
+
+
+> shuffled_seq_05
+Length=70
+
+ Score = 10.0 bits (14),  Expect = 5.3, Method: Compositional matrix adjust.
+ Identities = 4/7 (57%), Positives = 4/7 (57%), Gaps = 0/7 (0%)
+
+Query  39  GRVTTAT  45
+           GR T  T
+Sbjct  32  GRSTALT  38
+
+
+ Score =  9.6 bits (13),  Expect = 6.8, Method: Compositional matrix adjust.
+ Identities = 3/4 (75%), Positives = 4/4 (100%), Gaps = 0/4 (0%)
+
+Query  16  GRSS  19
+           GRS+
+Sbjct  32  GRST  35
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_05.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 26: shuffled_seq_04 vs shuffled_seq_06
-Query:   shuffled_seq_04  STSVRYRGSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFYYTLSSTG
-Subject: shuffled_seq_06  RSSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSSTLVSSGGSG
 ----------------------------------------------------------------------
-  Score:      47.0 bits
-  E-value:    7.13e-04
-  Identity:   32/63 (50%)
-  Alignment:
-    Query:  target           29 SGSRRRSRSGRV-TTATMRAPLTSSSVARGP--SMFYYTLSST 69
-    Match:                    0 |.|||.||...|-...|.|....|.|.||.|--|..|...||| 43
-    Sbjct:  query             1 SSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSST 44
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_06.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_04
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_06                                                       12.7    0.47 
+
+
+> shuffled_seq_06
+Length=70
+
+ Score = 12.7 bits (21),  Expect = 0.47, Method: Compositional matrix adjust.
+ Identities = 4/8 (50%), Positives = 6/8 (75%), Gaps = 0/8 (0%)
+
+Query  21  STPSAYSP  28
+           +TP +Y P
+Sbjct  44  TTPRSYGP  51
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_06.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 27: shuffled_seq_04 vs shuffled_seq_07
-Query:   shuffled_seq_04  STSVRYRGSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFYYTLSSTG
-Subject: shuffled_seq_07  SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSSVGPLVGSGTST
 ----------------------------------------------------------------------
-  Score:      50.0 bits
-  E-value:    3.20e-04
-  Identity:   26/56 (46%)
-  Alignment:
-    Query:  target           35 SRSGRVTTATMRAPLTSSSVARGPSMFYYTLSS 68
-    Match:                    0 ||||.....|.....||..|.|.||....|..| 33
-    Sbjct:  query             0 SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPS 33
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_07.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_04
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_07                                                       15.8    0.036
+
+
+> shuffled_seq_07
+Length=70
+
+ Score = 15.8 bits (29),  Expect = 0.036, Method: Compositional matrix adjust.
+ Identities = 11/27 (41%), Positives = 14/27 (52%), Gaps = 0/27 (0%)
+
+Query  36  SRSGRVTTATMRAPLTSSSVARGPSMF  62
+           SRSG   + T     TS+ V R PS +
+Sbjct  1   SRSGYAASTTSSRRATSTRVMRSPSFY  27
+
+
+ Score = 15.4 bits (28),  Expect = 0.044, Method: Compositional matrix adjust.
+ Identities = 12/26 (46%), Positives = 16/26 (62%), Gaps = 4/26 (15%)
+
+Query  24  SAYSPSSGSRRRSRSGRVTTATMRAP  49
+           S Y+ S+ S RR+ S RV    MR+P
+Sbjct  3   SGYAASTTSSRRATSTRV----MRSP  24
+
+
+ Score =  9.6 bits (13),  Expect = 6.8, Method: Compositional matrix adjust.
+ Identities = 10/21 (48%), Positives = 13/21 (62%), Gaps = 2/21 (10%)
+
+Query  22  TPSAYSPS--SGSRRRSRSGR  40
+           +PS YS +  SG+ R S S R
+Sbjct  23  SPSFYSSTRPSGAPRSSLSVR  43
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_07.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 28: shuffled_seq_04 vs shuffled_seq_08
-Query:   shuffled_seq_04  STSVRYRGSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFYYTLSSTG
-Subject: shuffled_seq_08  RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGRTGSFVGRSMS
 ----------------------------------------------------------------------
-  Score:      50.0 bits
-  E-value:    3.20e-04
-  Identity:   34/72 (47%)
-  Alignment:
-    Query:  target            6 RGSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGR---VTTATMRAPLTSSSV 55
-    Match:                    0 ||.....||.|.|..|-|.||.......|||.|.---.|.|....|..|.|. 52
-    Sbjct:  query             0 RGAASYSSSRRGSRYT-SVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSL 51
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_08.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_04
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_08                                                       10.4    3.4  
+
+
+> shuffled_seq_08
+Length=70
+
+ Score = 10.4 bits (15),  Expect = 3.4, Method: Compositional matrix adjust.
+ Identities = 5/15 (33%), Positives = 10/15 (67%), Gaps = 0/15 (0%)
+
+Query  41  VTTATMRAPLTSSSV  55
+            T+A   +P+ S+S+
+Sbjct  37  TTSALSLSPVASTSL  51
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_08.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 29: shuffled_seq_04 vs shuffled_seq_09
-Query:   shuffled_seq_04  STSVRYRGSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFYYTLSSTG
-Subject: shuffled_seq_09  SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRGSYSRRSGTSSRLFLVRASTY
 ----------------------------------------------------------------------
-  Score:      39.0 bits
-  E-value:    6.03e-03
-  Identity:   29/61 (47%)
-  Alignment:
-    Query:  target           17 SSYSTPSAYSPSSGSRRRS---RSGRVTTATMRAPLTSSSV 55
-    Match:                    0 |.....||.|.|.|...||---.|....|.|.||..|.|.| 41
-    Sbjct:  query             0 SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMV 41
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_09.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_04
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_09                                                       13.1    0.38 
+
+
+> shuffled_seq_09
+Length=70
+
+ Score = 13.1 bits (22),  Expect = 0.38, Method: Compositional matrix adjust.
+ Identities = 7/9 (78%), Positives = 7/9 (78%), Gaps = 0/9 (0%)
+
+Query  1   STSVRYRGS  9
+           STS  YRGS
+Sbjct  43  STSRPYRGS  51
+
+
+ Score = 11.9 bits (19),  Expect = 1.1, Method: Compositional matrix adjust.
+ Identities = 5/7 (71%), Positives = 6/7 (86%), Gaps = 0/7 (0%)
+
+Query  16  GRSSYST  22
+           G S+YST
+Sbjct  23  GSSAYST  29
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_09.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 30: shuffled_seq_04 vs shuffled_seq_10
-Query:   shuffled_seq_04  STSVRYRGSLVLASSGRSSYSTPSAYSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFYYTLSSTG
-Subject: shuffled_seq_10  LPRGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARSFLSYGATVTS
 ----------------------------------------------------------------------
-  Score:      45.0 bits
-  E-value:    1.22e-03
-  Identity:   35/77 (45%)
-  Alignment:
-    Query:  target           14 SGRSSYSTPSA-YSPSSGSRRRSRSGRVTTATMRAPLTSSSVARGPSMFYYTLSS 68
-    Match:                    0 .|.||.||.|.-..||..||.|-|||...|.........|.|.---|..|...|| 55
-    Sbjct:  query             4 AGTSSRSTSSSGLRPSTVSRLR-RSGSTSTYPSTRMVGRSYVS---SRYYASASS 55
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_10.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_04
+
+Length=70
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_10.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 31: shuffled_seq_05 vs shuffled_seq_06
-Query:   shuffled_seq_05  PGPLGFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSRATYSVR
-Subject: shuffled_seq_06  RSSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSSTLVSSGGSG
 ----------------------------------------------------------------------
-  Score:      37.0 bits
-  E-value:    1.03e-02
-  Identity:   27/66 (40%)
-  Alignment:
-    Query:  target           24 TSVRTSSGRSTALTY----VMARSTARSR-RGYASGYMSYRGSSRATY 67
-    Match:                    0 .|.|..|..||...|----..|.||...|-..|.|.|..........| 48
-    Sbjct:  query             1 SSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSY 49
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_06.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_05
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_06                                                       10.8    2.6  
+
+
+> shuffled_seq_06
+Length=70
+
+ Score = 10.8 bits (16),  Expect = 2.6, Method: Compositional matrix adjust.
+ Identities = 7/15 (47%), Positives = 8/15 (53%), Gaps = 0/15 (0%)
+
+Query  1   PGPLGFLSSSSTLSS  15
+           PG      +SSTL S
+Sbjct  51  PGVRSLTMTSSTLVS  65
+
+
+ Score = 10.0 bits (14),  Expect = 5.6, Method: Compositional matrix adjust.
+ Identities = 3/4 (75%), Positives = 4/4 (100%), Gaps = 0/4 (0%)
+
+Query  61  GSSR  64
+           G+SR
+Sbjct  17  GTSR  20
+
+
+ Score =  9.6 bits (13),  Expect = 7.6, Method: Compositional matrix adjust.
+ Identities = 5/11 (45%), Positives = 6/11 (55%), Gaps = 0/11 (0%)
+
+Query  21  PSVSTSVRTSS  31
+           P V +   TSS
+Sbjct  51  PGVRSLTMTSS  61
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_06.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 32: shuffled_seq_05 vs shuffled_seq_07
-Query:   shuffled_seq_05  PGPLGFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSRATYSVR
-Subject: shuffled_seq_07  SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSSVGPLVGSGTST
 ----------------------------------------------------------------------
-  Score:      43.0 bits
-  E-value:    2.07e-03
-  Identity:   29/76 (38%)
-  Alignment:
-    Query:  target            7 SSSSTLSSPTRSSPSVSTSVRTSSGRSTALT---YVMARSTARSRRGYASGYMSYRGSS
-    Match:                    0 ||....|.....|||...|.|.|......|.---|...|..|...|....|.....|.|
-    Sbjct:  query            10 SSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSSVGPLVGSGTS
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_07.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_05
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_07                                                       11.2    2.1  
+
+
+> shuffled_seq_07
+Length=70
+
+ Score = 11.2 bits (17),  Expect = 2.1, Method: Compositional matrix adjust.
+ Identities = 8/17 (47%), Positives = 9/17 (53%), Gaps = 0/17 (0%)
+
+Query  54  SGYMSYRGSSRATYSVR  70
+           SGY +   SSR   S R
+Sbjct  3   SGYAASTTSSRRATSTR  19
+
+
+ Score = 10.4 bits (15),  Expect = 3.9, Method: Compositional matrix adjust.
+ Identities = 8/13 (62%), Positives = 10/13 (77%), Gaps = 1/13 (8%)
+
+Query  29  TSSGRSTALTYVM  41
+           TSS R+T+ T VM
+Sbjct  10  TSSRRATS-TRVM  21
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_07.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 33: shuffled_seq_05 vs shuffled_seq_08
-Query:   shuffled_seq_05  PGPLGFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSRATYSVR
-Subject: shuffled_seq_08  RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGRTGSFVGRSMS
 ----------------------------------------------------------------------
-  Score:      40.0 bits
-  E-value:    4.62e-03
-  Identity:   29/62 (46%)
-  Alignment:
-    Query:  target            9 SSTLSSPTRSSPSVS----TSVRTSSGRSTALTYVMARSTARS 48
-    Match:                    0 |.....|.||.|..|----.....|...||.||..|-|.|.|. 43
-    Sbjct:  query            19 STRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSM-RPTGRT 61
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_08.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_05
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_08                                                       11.5    1.2  
+
+
+> shuffled_seq_08
+Length=70
+
+ Score = 11.5 bits (18),  Expect = 1.2, Method: Compositional matrix adjust.
+ Identities = 5/8 (63%), Positives = 6/8 (75%), Gaps = 0/8 (0%)
+
+Query  20  SPSVSTSV  27
+           SP  STS+
+Sbjct  44  SPVASTSL  51
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_08.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 34: shuffled_seq_05 vs shuffled_seq_09
-Query:   shuffled_seq_05  PGPLGFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSRATYSVR
-Subject: shuffled_seq_09  SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRGSYSRRSGTSSRLFLVRASTY
 ----------------------------------------------------------------------
-  Score:      54.0 bits
-  E-value:    1.10e-04
-  Identity:   30/80 (37%)
-  Alignment:
-    Query:  target            2 PLGFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGS
-    Match:                    0 |.|..|.|||.......|.....|...........|..|..||.|..||---.|....|.
-    Sbjct:  query             1 PVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRG---SYSRRSGT
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_09.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_05
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_09                                                       13.1    0.39 
+
+
+> shuffled_seq_09
+Length=70
+
+ Score = 13.1 bits (22),  Expect = 0.39, Method: Compositional matrix adjust.
+ Identities = 6/10 (60%), Positives = 8/10 (80%), Gaps = 0/10 (0%)
+
+Query  3   PLGFLSSSST  12
+           P+G  S+SST
+Sbjct  2   PVGSASASST  11
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_09.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 35: shuffled_seq_05 vs shuffled_seq_10
-Query:   shuffled_seq_05  PGPLGFLSSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYASGYMSYRGSSRATYSVR
-Subject: shuffled_seq_10  LPRGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARSFLSYGATVTS
 ----------------------------------------------------------------------
-  Score:      47.0 bits
-  E-value:    7.13e-04
-  Identity:   35/70 (50%)
-  Alignment:
-    Query:  target            7 SSSSTLSSPTRSSPSVSTSVRTSSGRSTALTYVMARSTARSRRGYAS 54
-    Match:                    0 ||.||.||..|--||.....|.|...||.....|......|.|.||| 47
-    Sbjct:  query             7 SSRSTSSSGLR--PSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYAS 52
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_10.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_05
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_10                                                       10.0    5.7  
+
+
+> shuffled_seq_10
+Length=70
+
+ Score = 10.0 bits (14),  Expect = 5.7, Method: Compositional matrix adjust.
+ Identities = 6/15 (40%), Positives = 8/15 (53%), Gaps = 0/15 (0%)
+
+Query  21  PSVSTSVRTSSGRST  35
+           PS  + +R S   ST
+Sbjct  19  PSTVSRLRRSGSTST  33
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_10.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 36: shuffled_seq_06 vs shuffled_seq_07
-Query:   shuffled_seq_06  RSSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSSTLVSSGGSG
-Subject: shuffled_seq_07  SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSSVGPLVGSGTST
 ----------------------------------------------------------------------
-  Score:      48.0 bits
-  E-value:    5.46e-04
-  Identity:   33/69 (47%)
-  Alignment:
-    Query:  target           17 TSRLLAASTSAARPPSYSSSYRRMSSTTPRS-----------YGPGVRSLTMTSSTLVSS
-    Match:                    0 ||...|.||...|.||..||.|--.|..|||-----------|..|...-|.....||.|
-    Sbjct:  query             9 TSSRRATSTRVMRSPSFYSSTR--PSGAPRSSLSVRYYSLSRYSAGLMR-TSSVGPLVGS
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_07.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_06
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_07                                                       10.4    3.4  
+
+
+> shuffled_seq_07
+Length=70
+
+ Score = 10.4 bits (15),  Expect = 3.4, Method: Compositional matrix adjust.
+ Identities = 10/25 (40%), Positives = 11/25 (44%), Gaps = 6/25 (24%)
+
+Query  23  AASTSAARPPSYSSSYRRMSSTTPR  47
+           A ST   R PS+       SST P 
+Sbjct  15  ATSTRVMRSPSF------YSSTRPS  33
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_07.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 37: shuffled_seq_06 vs shuffled_seq_08
-Query:   shuffled_seq_06  RSSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSSTLVSSGGSG
-Subject: shuffled_seq_08  RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGRTGSFVGRSMS
 ----------------------------------------------------------------------
-  Score:      59.0 bits
-  E-value:    2.89e-05
-  Identity:   33/80 (41%)
-  Alignment:
-    Query:  target            1 SSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSS
-    Match:                    0 |||||.|||..|.---..|....|.|.....||..|....|.....|.....|....|.|
-    Sbjct:  query             6 SSSRRGSRYTSVY---STRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGRTGS
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_08.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_06
+
+Length=70
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_08.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 38: shuffled_seq_06 vs shuffled_seq_09
-Query:   shuffled_seq_06  RSSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSSTLVSSGGSG
-Subject: shuffled_seq_09  SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRGSYSRRSGTSSRLFLVRASTY
 ----------------------------------------------------------------------
-  Score:      48.0 bits
-  E-value:    5.46e-04
-  Identity:   32/72 (44%)
-  Alignment:
-    Query:  target            0 RSSSRRVSRYSTVFAYGT-SRLLAASTSAARPPSYSSSYRRMSSTTPRSY 49
-    Match:                    0 ||.....|.|||......-.|....|||--||--|..||.|.|.|..|.. 50
-    Sbjct:  query            17 RSLTPGSSAYSTYTSRASVTRSMVPSTS--RP--YRGSYSRRSGTSSRLF 63
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_09.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_06
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_09                                                       14.6    0.087
+
+
+> shuffled_seq_09
+Length=70
+
+ Score = 14.6 bits (26),  Expect = 0.087, Method: Compositional matrix adjust.
+ Identities = 6/8 (75%), Positives = 7/8 (88%), Gaps = 0/8 (0%)
+
+Query  50  GPGVRSLT  57
+           G G+RSLT
+Sbjct  14  GLGMRSLT  21
+
+
+ Score = 10.4 bits (15),  Expect = 3.4, Method: Compositional matrix adjust.
+ Identities = 5/11 (45%), Positives = 6/11 (55%), Gaps = 0/11 (0%)
+
+Query  39  RRMSSTTPRSY  49
+           R M  +T R Y
+Sbjct  38  RSMVPSTSRPY  48
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_09.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 39: shuffled_seq_06 vs shuffled_seq_10
-Query:   shuffled_seq_06  RSSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRSLTMTSSTLVSSGGSG
-Subject: shuffled_seq_10  LPRGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARSFLSYGATVTS
 ----------------------------------------------------------------------
-  Score:      43.0 bits
-  E-value:    2.07e-03
-  Identity:   28/77 (36%)
-  Alignment:
-    Query:  target            1 SSSRRVSRYSTVFAYGTSRLLAASTSAARPPSYSSSYRRMSSTTPRSYGPGVRS 55
-    Match:                    0 |...|..|......|...|....|....|---|..|...|......|||..|.| 54
-    Sbjct:  query            19 STVSRLRRSGSTSTYPSTRMVGRSYVSSR---YYASASSMPARSFLSYGATVTS 70
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_10.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_06
+
+Length=70
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_10.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 40: shuffled_seq_07 vs shuffled_seq_08
-Query:   shuffled_seq_07  SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSSVGPLVGSGTST
-Subject: shuffled_seq_08  RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGRTGSFVGRSMS
 ----------------------------------------------------------------------
-  Score:      50.0 bits
-  E-value:    3.20e-04
-  Identity:   32/72 (44%)
-  Alignment:
-    Query:  target            5 AASTTSSRRAT------STRVMRSPSFYSSTRP--SGAPRSSLSVRYYSLSRYSAGLMRT
-    Match:                    0 |||..||||..------||||----...|..||--|....|.||...............|
-    Sbjct:  query             2 AASYSSSRRGSRYTSVYSTRV----AYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPT
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_08.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_07
+
+Length=70
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_08.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 41: shuffled_seq_07 vs shuffled_seq_09
-Query:   shuffled_seq_07  SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSSVGPLVGSGTST
-Subject: shuffled_seq_09  SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRGSYSRRSGTSSRLFLVRASTY
 ----------------------------------------------------------------------
-  Score:      42.0 bits
-  E-value:    2.71e-03
-  Identity:   29/65 (44%)
-  Alignment:
-    Query:  target            3 GYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYY 45
-    Match:                    0 |..|..|...||..||.|-.||.....|.|...||..|.|.. 42
-    Sbjct:  query            22 GSSAYSTYTSRASVTRSM-VPSTSRPYRGSYSRRSGTSSRLF 63
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_09.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_07
+
+Length=70
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_09.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 42: shuffled_seq_07 vs shuffled_seq_10
-Query:   shuffled_seq_07  SRSGYAASTTSSRRATSTRVMRSPSFYSSTRPSGAPRSSLSVRYYSLSRYSAGLMRTSSVGPLVGSGTST
-Subject: shuffled_seq_10  LPRGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARSFLSYGATVTS
 ----------------------------------------------------------------------
-  Score:      58.0 bits
-  E-value:    3.78e-05
-  Identity:   33/67 (49%)
-  Alignment:
-    Query:  target            2 SGYAASTTSSRRATSTRVMR--SPSFYSSTRPSGAPRSSLSVRYYS 46
-    Match:                    0 |....|....|..|..|..|--|.|.|.|||..|--||..|.|||. 46
-    Sbjct:  query             7 SSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVG--RSYVSSRYYA 51
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_10.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_07
+
+Length=70
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_10.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 43: shuffled_seq_08 vs shuffled_seq_09
-Query:   shuffled_seq_08  RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGRTGSFVGRSMS
-Subject: shuffled_seq_09  SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRGSYSRRSGTSSRLFLVRASTY
 ----------------------------------------------------------------------
-  Score:      56.0 bits
-  E-value:    6.45e-05
-  Identity:   35/59 (59%)
-  Alignment:
-    Query:  target            1 GAASYSSSRRG-------------SRYTSVYS-TRVAYPSRSRPGSSSYT 37
-    Match:                    0 |.||.||..||-------------|.|||..|-||...||.|||...||. 50
-    Sbjct:  query             3 GSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRGSYS 53
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_09.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_08
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_09                                                       15.4    0.059
+
+
+> shuffled_seq_09
+Length=70
+
+ Score = 15.4 bits (28),  Expect = 0.059, Method: Compositional matrix adjust.
+ Identities = 9/17 (53%), Positives = 10/17 (59%), Gaps = 0/17 (0%)
+
+Query  21  TRVAYPSRSRPGSSSYT  37
+           TR   PS SRP   SY+
+Sbjct  37  TRSMVPSTSRPYRGSYS  53
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_09.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 44: shuffled_seq_08 vs shuffled_seq_10
-Query:   shuffled_seq_08  RGAASYSSSRRGSRYTSVYSTRVAYPSRSRPGSSSYTTSALSLSPVASTSLTLSMRPTGRTGSFVGRSMS
-Subject: shuffled_seq_10  LPRGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARSFLSYGATVTS
 ----------------------------------------------------------------------
-  Score:      42.0 bits
-  E-value:    2.71e-03
-  Identity:   28/60 (46%)
-  Alignment:
-    Query:  target           31 GSSSYTTSALSLSPVASTSLTLSMRPTGRTGSF-----VGRS 68
-    Match:                    0 |.||..||...|.|----|.....|..|.|...-----|||| 42
-    Sbjct:  query             5 GTSSRSTSSSGLRP----STVSRLRRSGSTSTYPSTRMVGRS 43
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_10.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_08
+
+Length=70
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+shuffled_seq_10                                                       10.4    4.0  
+
+
+> shuffled_seq_10
+Length=70
+
+ Score = 10.4 bits (15),  Expect = 4.0, Method: Compositional matrix adjust.
+ Identities = 7/14 (50%), Positives = 7/14 (50%), Gaps = 0/14 (0%)
+
+Query  47  ASTSLTLSMRPTGR  60
+            STS   S R  GR
+Sbjct  29  GSTSTYPSTRMVGR  42
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_10.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
 ======================================================================
 Pair 45: shuffled_seq_09 vs shuffled_seq_10
-Query:   shuffled_seq_09  SPVGSASASSTSRGLGMRSLTPGSSAYSTYTSRASVTRSMVPSTSRPYRGSYSRRSGTSSRLFLVRASTY
-Subject: shuffled_seq_10  LPRGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSRYYASASSMPARSFLSYGATVTS
 ----------------------------------------------------------------------
-  Score:      55.0 bits
-  E-value:    8.42e-05
-  Identity:   32/76 (42%)
-  Alignment:
-    Query:  target            1 PVGSASASSTSRGLGMRSLTPG----SSAYSTYTSRASVTRSMVPSTSRPYRGSYSRRSG
-    Match:                    0 |.|....|......|.|..|..----|...|||.|...|.||.|.|.------.|...|.
-    Sbjct:  query             1 PRGAGTSSRSTSSSGLRPSTVSRLRRSGSTSTYPSTRMVGRSYVSSR------YYASASS
+BLASTP 2.12.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_10.fasta).
+           1 sequences; 70 total letters
+
+
+
+Query= shuffled_seq_09
+
+Length=70
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.307    0.116    0.309    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 4096
+
+
+  Database: User specified sequence set (Input:
+/home/ubuntu/BioInformatics/shuffled_seqs/seq_10.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 70
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
 
