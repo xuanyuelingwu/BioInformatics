@@ -1,0 +1,15 @@
+{
+  "category": "Neuroimaging",
+  "contributors": [
+    "Lu Aohan (2023012411)"
+  ],
+  "description": "FreeSurfer-guided oblique MRI slice reconstruction. Click any point on a cortical surface (lh.pial / rh.pial) in the 3-D view; the selected 2-D slice view is instantly reoriented to the tangent plane at that point so you can scroll through oblique slices along the surface normal axis. Optionally generate a full resampled volume and export as DICOM.",
+  "enabled": true,
+  "homepage": "https://github.com/xuanyuelingwu/BioInformatics/tree/main/SlicerSurfaceNormalSlicer",
+  "iconurl": "https://raw.githubusercontent.com/xuanyuelingwu/BioInformatics/main/SlicerSurfaceNormalSlicer/SurfaceNormalSlicer/Resources/Icons/SurfaceNormalSlicer.png",
+  "name": "SurfaceNormalSlicer",
+  "scm_url": "https://github.com/xuanyuelingwu/BioInformatics.git",
+  "scm_revision": "main",
+  "scm_type": "git",
+  "build_subdirectory": "SlicerSurfaceNormalSlicer"
+}
